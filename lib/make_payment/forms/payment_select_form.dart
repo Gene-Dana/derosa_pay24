@@ -127,8 +127,9 @@ class _PaymentSelectFormState extends State<PaymentSelectForm> {
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.all(16),
                         backgroundColor: const Color(0xff2A3066),
-                        onSurface: Colors.white,
-                        primary: Colors.white,
+
+                        // onSurface: Colors.white,
+                        // primary: Colors.white,
                         textStyle: const TextStyle(
                           fontSize: 20,
                         ),
