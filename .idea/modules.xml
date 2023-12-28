@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/derosa_pay24.iml" filepath="$PROJECT_DIR$/derosa_pay24.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/derosa_pay24_android.iml" filepath="$PROJECT_DIR$/android/derosa_pay24_android.iml" />
+    </modules>
+  </component>
+</project>
