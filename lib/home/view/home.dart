@@ -72,7 +72,7 @@ class _HomeState extends State<Home> {
               TextButton(
                 style: TextButton.styleFrom(
                   padding: const EdgeInsets.all(16),
-                  primary: Colors.white,
+                  foregroundColor: Colors.white,
                   textStyle: const TextStyle(fontSize: 20),
                 ),
                 onPressed: () async {
