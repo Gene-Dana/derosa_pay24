@@ -30,12 +30,13 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     const id = 'DeRosa';
-    const title = 'Oct 6 - Oct 12';
+    const title = 'Oct 20 - Oct 26';
     const price = '399';
     final timeStamp = DateTime.now().toString();
 
     return Scaffold(
       appBar: AppBar(
+        // this is a comment
         actions: [
           Padding(
             padding: const EdgeInsets.all(8),
