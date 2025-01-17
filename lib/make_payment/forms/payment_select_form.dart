@@ -123,19 +123,20 @@ class _PaymentSelectFormState extends State<PaymentSelectForm> {
                 borderRadius: BorderRadius.circular(4),
                 child: Stack(
                   children: <Widget>[
-                    ElevatedButton(
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.all(16),
-                        backgroundColor: const Color(0xff2A3066),
-
-                        // onSurface: Colors.white,
-                        // primary: Colors.white,
-                        textStyle: const TextStyle(
-                          fontSize: 20,
-                        ),
+                    OutlinedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.resolveWith((states) {
+                          // If the button is pressed, return green, otherwise blue
+                          if (states.contains(MaterialState.pressed)) {
+                            return Colors.blue;
+                          }
+                          return Colors.blue;
+                        }),
                       ),
                       onPressed: _character != null ? _continuePressed : null,
-                      child: const Text('Continue'),
+                      child: const Text('Continue',
+                          style: TextStyle(color: Colors.white)),
                     ),
                   ],
                 ),
