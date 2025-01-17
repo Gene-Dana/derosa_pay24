@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:firestore_payments_api/models/models.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
@@ -27,7 +26,7 @@ class Payment extends Equatable {
     required this.id,
     required this.title,
     this.price = '',
-    this.timeStamp= 'DateTime.now().toString()',
+    this.timeStamp = 'DateTime.now().toString()',
   });
 
   /// The unique identifier of the payment.
@@ -53,12 +52,8 @@ class Payment extends Equatable {
   /// Returns a copy of this payment with the given values updated.
   ///
   /// {@macro payment}
-  Payment copyWith({
-    String? id,
-    String? title,
-    String? price,
-    String? timeStamp
-  }) {
+  Payment copyWith(
+      {String? id, String? title, String? price, String? timeStamp}) {
     return Payment(
       id: id ?? this.id,
       title: title ?? this.title,
@@ -66,12 +61,6 @@ class Payment extends Equatable {
       timeStamp: timeStamp ?? this.timeStamp,
     );
   }
-
-  /// Deserializes the given [JsonMap] into a [Payment].
-  static Payment fromJson(JsonMap json) => _$PaymentFromJson(json);
-
-  /// Converts this [Payment] into a [JsonMap].
-  JsonMap toJson() => _$PaymentToJson(this);
 
   @override
   List<Object> get props => [id, title, price, timeStamp];

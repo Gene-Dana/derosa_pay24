@@ -1,25 +1,19 @@
 import 'package:bloc/bloc.dart';
+import 'package:derosa_pay25/home/models/payment.dart';
 import 'package:equatable/equatable.dart';
-import 'package:firestore_payments_api/firestore_payments_api.dart';
-import 'package:firestore_payments_api/models/models.dart';
 
 part 'make_payment_event.dart';
 part 'make_payment_state.dart';
 
 class MakePaymentBloc extends Bloc<MakePaymentEvent, MakePaymentState> {
   MakePaymentBloc({
-    required FirestorePaymentsApi firestorePaymentsApi,
     required this.payment,
-    required this.userId,
-  })  : _firestorePaymentsApi = firestorePaymentsApi,
-        super(MakePaymentState.initial(userId, payment)) {
+  }) : super(MakePaymentState.initial(payment)) {
     on<DefaultSelected>(_onDefaultSelected);
 
     on<PaymentSuccess>(_onPaymentSuccess);
   }
 
-  final FirestorePaymentsApi _firestorePaymentsApi;
-  final String userId;
   final Payment payment;
 
   /// Event handler for the event when the default payment
@@ -31,14 +25,6 @@ class MakePaymentBloc extends Bloc<MakePaymentEvent, MakePaymentState> {
     emit(
       state.copyWith(status: MakePaymentStatus.defaultPayment),
     );
-
-    await _firestorePaymentsApi.savePayment(payment).then(
-          (value) => {
-            emit(
-              state.copyWith(status: MakePaymentStatus.success),
-            )
-          },
-        );
   }
 
   /// Event handler for the event when the default payment

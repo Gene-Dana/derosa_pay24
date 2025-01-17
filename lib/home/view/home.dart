@@ -1,5 +1,5 @@
-import 'package:derosa_pay24/make_payment/view/make_payment.dart';
-import 'package:firestore_payments_api/models/models.dart';
+import 'package:derosa_pay25/home/models/payment.dart';
+import 'package:derosa_pay25/make_payment/view/make_payment.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -34,77 +34,82 @@ class _HomeState extends State<Home> {
     const price = '399';
     final timeStamp = DateTime.now().toString();
 
-    return Scaffold(
-      appBar: AppBar(
-        // this is a comment
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8),
-            // ignore: sized_box_for_whitespace
-            child: Container(width: 200, child: Image.asset('logo_light.png')),
-          )
-        ],
-        backgroundColor: Colors.white,
-        title: const Text(
-          'Invoice $title',
-          style: TextStyle(
-            color: Color(0xff2A3066),
+    return MaterialApp(
+      home: Builder(builder: (context) {
+        return Scaffold(
+          appBar: AppBar(
+            // this is a comment
+            actions: [
+              Padding(
+                padding: const EdgeInsets.all(8),
+                // ignore: sized_box_for_whitespace
+                child:
+                    Container(width: 200, child: Image.asset('logo_light.png')),
+              )
+            ],
+            backgroundColor: Colors.white,
+            title: const Text(
+              'Invoice $title',
+              style: TextStyle(
+                color: Color(0xff2A3066),
+              ),
+            ),
           ),
-        ),
-      ),
-      body: Center(
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(4),
-          child: Stack(
-            children: <Widget>[
-              Positioned.fill(
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: <Color>[
-                        Color(0xFF0D47A1),
-                        Color(0xFF1976D2),
-                        Color(0xFF42A5F5),
-                      ],
+          body: Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(4),
+              child: Stack(
+                children: <Widget>[
+                  Positioned.fill(
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: <Color>[
+                            Color(0xFF0D47A1),
+                            Color(0xFF1976D2),
+                            Color(0xFF42A5F5),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.all(16),
-                  foregroundColor: Colors.white,
-                  textStyle: const TextStyle(fontSize: 20),
-                ),
-                onPressed: () async {
-                  await Navigator.of(context).push(
-                    MakePayment.route(
-                      Payment(
-                        id: id,
-                        title: title,
-                        price: price,
-                        timeStamp: timeStamp,
-                      ),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.all(16),
+                      foregroundColor: Colors.white,
+                      textStyle: const TextStyle(fontSize: 20),
                     ),
-                  );
+                    onPressed: () async {
+                      await Navigator.of(context).push(
+                        MakePayment.route(
+                          Payment(
+                            id: id,
+                            title: title,
+                            price: price,
+                            timeStamp: timeStamp,
+                          ),
+                        ),
+                      );
 
-                  if (!mounted) return;
-                  Navigator.of(context).pop();
+                      if (!mounted) return;
+                      Navigator.of(context).pop();
 
-                  ScaffoldMessenger.of(context)
-                    ..hideCurrentSnackBar()
-                    ..showSnackBar(
-                      const SnackBar(
-                        content: Text('Payment Complete!'),
-                      ),
-                    );
-                },
-                child: const Text('Make Payment of \$$price'),
+                      ScaffoldMessenger.of(context)
+                        ..hideCurrentSnackBar()
+                        ..showSnackBar(
+                          const SnackBar(
+                            content: Text('Payment Complete!'),
+                          ),
+                        );
+                    },
+                    child: const Text('Make Payment of \$$price'),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      }),
     );
   }
 }

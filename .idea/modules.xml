@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/derosa_pay24.iml" filepath="$PROJECT_DIR$/derosa_pay24.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/derosa_pay24_android.iml" filepath="$PROJECT_DIR$/android/derosa_pay24_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/derosa_pay25.iml" filepath="$PROJECT_DIR$/derosa_pay25.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/derosa_pay25_android.iml" filepath="$PROJECT_DIR$/android/derosa_pay25_android.iml" />
     </modules>
   </component>
 </project>

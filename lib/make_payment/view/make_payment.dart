@@ -1,7 +1,6 @@
-import 'package:derosa_pay24/app/bloc/app_bloc.dart';
-import 'package:derosa_pay24/make_payment/make_payment.dart';
-import 'package:firestore_payments_api/firestore_payments_api.dart';
-import 'package:firestore_payments_api/models/models.dart';
+import 'package:derosa_pay25/home/models/payment.dart';
+import 'package:derosa_pay25/make_payment/make_payment.dart';
+
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,8 +29,6 @@ class MakePayment extends StatelessWidget {
     return BlocProvider(
       create: (context) => MakePaymentBloc(
         payment: payment,
-        firestorePaymentsApi: context.read<FirestorePaymentsApi>(),
-        userId: context.read<AppBloc>().state.user!.id,
       ),
       child: const _BuildFlow(),
     );
