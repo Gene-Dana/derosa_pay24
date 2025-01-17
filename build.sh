@@ -6,7 +6,7 @@ git clone https://github.com/flutter/flutter.git
 FLUTTER=flutter/bin/flutter
 
 #Flutter channel cmd
-cmd="${FLUTTER} channel ${FLUTTER_BRANCH}"
+cmd="${FLUTTER} channel stable"
 
 # Set channel info and update
 DIR=$($cmd >& /dev/stdout)
@@ -19,4 +19,4 @@ if [[ $DIR == *"Your branch is behind"* ]]; then
 fi
 
 # Build flutter for web
-$FLUTTER build web --release --web-renderer html
+$FLUTTER build web --release 
