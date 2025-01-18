@@ -25,6 +25,9 @@ class MakePaymentBloc extends Bloc<MakePaymentEvent, MakePaymentState> {
     emit(
       state.copyWith(status: MakePaymentStatus.defaultPayment),
     );
+
+    await Future.delayed(Duration(seconds: 2));
+    add(PaymentSuccess()); // Trigger the PaymentSuccess event
   }
 
   /// Event handler for the event when the default payment
