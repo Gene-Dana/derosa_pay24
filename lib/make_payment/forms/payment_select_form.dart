@@ -15,7 +15,7 @@ class _PaymentSelectFormState extends State<PaymentSelectForm> {
   void _continuePressed() {
     context
         .read<MakePaymentBloc>()
-        .add(const PaymentInitiated(amount: '399.00', currency: 'USD'));
+        .add(const PaymentInitiated(amount: '39900', currency: 'USD'));
   }
 
   PaymentMethod? _character;

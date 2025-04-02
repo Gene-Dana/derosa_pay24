@@ -29,7 +29,7 @@ Future<Response> _makePayment(Request request) async {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: {
-        'amount': amount.toString(),
+        'amount': amount,
         'currency': currency,
         'payment_method_types[]': 'us_bank_account', // Allow ACH bank account
       },
