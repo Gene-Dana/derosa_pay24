@@ -22,18 +22,18 @@ Future<Response> _makePayment(Request request) async {
       "currency": String? currency,
     } = Map<String, dynamic>.from(await request.json());
 
-    final response = await http.post(
-      Uri.parse('https://api.stripe.com/v1/payment_intents'),
-      headers: {
-        'Authorization': 'Bearer $apiKey',
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: {
-        'amount': amount,
-        'currency': currency,
-        'payment_method_types[]': 'us_bank_account', // Allow ACH bank account
-      },
-    );
+    final response = await http
+        .post(Uri.parse('https://api.stripe.com/v1/payment_intents'), headers: {
+      'Authorization': 'Bearer $apiKey',
+      'Content-Type': 'application/x-www-form-urlencoded',
+    }, body: {
+      'amount': amount,
+      'currency': currency,
+      'payment_method_types[]': 'us_bank_account', // Allow ACH bank account
+      'customer': 'cus_OkJBHUrlYIzVRK',
+      "payment_method": "pm_1O3H9GKtMrUMDgD4jU2rUdJ3",
+      "confirm": true
+    });
 
     final responseBody = jsonDecode(response.body);
 

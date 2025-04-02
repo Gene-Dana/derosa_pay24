@@ -59,7 +59,7 @@ class PaymentRepository {
     print('paymentIntentId: $paymentIntentId');
 
     const publishableKey =
-        'pk_live_51NwoUWKtMrUMDgD46YO0qjfLavpMfQBGkOhNQjUzsbChRFnpxOKFIiXtTKOeMhq2M7I6TdA1f3MrFniobrJv5g9v004D4ehm6s';
+        'pk_test_51NwoUWKtMrUMDgD408603CmwQKMI0mMRXlssC5bviPFKsBYyMU9h3yGtErfbiTqbA29q9ArDCCa34i5A7kFGX9fp00Y7mC9Pm8';
 
     final response = await http.post(
       Uri.parse(
