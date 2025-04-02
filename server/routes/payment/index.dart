@@ -31,7 +31,7 @@ Future<Response> _makePayment(Request request) async {
       body: {
         'amount': amount.toString(),
         'currency': currency,
-        'payment_method_types[]': 'card',
+        'payment_method_types[]': 'us_bank_account', // Allow ACH bank account
       },
     );
 
