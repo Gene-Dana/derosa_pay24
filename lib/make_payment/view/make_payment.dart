@@ -4,7 +4,6 @@ import 'package:derosa_pay25/make_payment/make_payment.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:payment_repository/payment_repository.dart';
 
 List<Page> onGenerateLocationPages(MakePaymentState state, List<Page> pages) {
   return [
@@ -29,7 +28,7 @@ class MakePayment extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => MakePaymentBloc(
-        paymentRepository: context.read<PaymentRepository>(),
+        payment: payment,
       ),
       child: const _BuildFlow(),
     );

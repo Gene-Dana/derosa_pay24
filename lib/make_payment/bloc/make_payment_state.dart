@@ -1,37 +1,43 @@
 part of 'make_payment_bloc.dart';
 
-enum MakePaymentStatus {
-  initial,
-  defaultPayment,
-  intentReceived,
-  success,
-  failed
-}
+enum MakePaymentStatus { initial, defaultPayment, inProgress, success }
 
-@immutable
 class MakePaymentState extends Equatable {
-  const MakePaymentState({
+  const MakePaymentState._({
     required this.status,
-    this.amount,
-    this.currency,
+    required this.payment,
   });
 
+  const MakePaymentState.initial(Payment payment)
+      : this._(
+          status: MakePaymentStatus.initial,
+          payment: payment,
+        );
+
+  const MakePaymentState.inProgress(Payment payment)
+      : this._(
+          status: MakePaymentStatus.inProgress,
+          payment: payment,
+        );
+
+  const MakePaymentState.success(Payment payment)
+      : this._(
+          status: MakePaymentStatus.success,
+          payment: payment,
+        );
+
   final MakePaymentStatus status;
-  final String? amount;
-  final String? currency;
+  final Payment payment;
+  @override
+  List<Object> get props => [status, payment];
 
   MakePaymentState copyWith({
     MakePaymentStatus? status,
-    String? amount,
-    String? currency,
+    Payment? payment,
   }) {
-    return MakePaymentState(
+    return MakePaymentState._(
       status: status ?? this.status,
-      amount: amount ?? this.amount,
-      currency: currency ?? this.currency,
+      payment: payment ?? this.payment,
     );
   }
-
-  @override
-  List<Object?> get props => [status, amount, currency];
 }
