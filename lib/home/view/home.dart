@@ -31,7 +31,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     const id = 'DeRosa';
     const title = 'Hospital Visit';
-    const price = '100';
+    const price = '150';
     final timeStamp = DateTime.now().toString();
 
     return MaterialApp(
