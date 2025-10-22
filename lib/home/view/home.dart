@@ -30,8 +30,8 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     const id = 'DeRosa';
-    const title = 'Sep 28 - Oct 4';
-    const price = '399';
+    const title = 'Hospital Visit';
+    const price = '100';
     final timeStamp = DateTime.now().toString();
 
     return MaterialApp(
