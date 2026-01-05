@@ -1,5 +1,5 @@
-import 'package:derosa_pay25/home/models/payment.dart';
-import 'package:derosa_pay25/make_payment/view/make_payment.dart';
+import 'package:derosa_pay26/home/models/payment.dart';
+import 'package:derosa_pay26/make_payment/view/make_payment.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     const id = 'DeRosa';
-    const title = 'Dec 14 - Dec 20';
+    const title = 'Dec 28 - Jan 3';
     const price = '399';
     final timeStamp = DateTime.now().toString();
 
