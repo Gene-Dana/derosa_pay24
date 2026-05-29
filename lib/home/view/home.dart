@@ -24,13 +24,13 @@ class _HomeState extends State<Home> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    precacheImage(logo!.image, context);
+    precacheImage(logo!.image, context); 
   }
 
   @override
   Widget build(BuildContext context) {
     const id = 'DeRosa';
-    const title = 'Apr 25 - May 1';
+    const title = 'May 24 - May 30';
     const price = '345';
     final timeStamp = DateTime.now().toString();
 
